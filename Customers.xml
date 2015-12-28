@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Customers xmlns="XMLDOM">
+<Customers id="3">
+<Name>Unknown</Name>
+<Adress>Unknown</Adress>
+<Tel>Unknown</Tel>
+<Email>Unknown</Email>
+<AccName:>Unknown</AccName:>
+<Password:>Unknown</Password:>
+</Customers>
+</Customers>

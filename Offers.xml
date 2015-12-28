@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Offers xmlns="XMLDOM">
+<Offers id="11">
+<Destination>Dubai</Destination>
+<Lenght>3day and 4 days</Lenght>
+<Price>1140</Price>
+<Hotels>Hotel dubai****, Hotel Plaza***</Hotels>
+<Vehicles>Airplane,Bus,Taxi cabs</Vehicles>
+<DateOfBeginingAndEnd>19.12.2015-23.12.2015</DateOfBeginingAndEnd>
+<BonusInfo>There will be free food !</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>Brazil</Destination>
+<Lenght>3days5night</Lenght>
+<Price>1111.0</Price>
+<Hotels>brazil hotel*****, alabama hotel*****</Hotels>
+<Vehicles>airplane</Vehicles>
+<DateOfBeginingAndEnd>23-22</DateOfBeginingAndEnd>
+<BonusInfo/>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
+</Offers>

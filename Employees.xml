@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Employees xmlns="XMLDOM">
+<Employees id="2">
+<Name>Vasil Vasilev</Name>
+<Adress>ul. Hristo Botev</Adress>
+<Tel>0888888888</Tel>
+<Email>vasilev88@abv.bg</Email>
+<AccName:>-2015631557</AccName:>
+<Password:>1492109653</Password:>
+</Employees>
+<Employees id="2">
+<Name>Vasil Vasilev</Name>
+<Adress>ul. Hristo Botev</Adress>
+<Tel>0888888888</Tel>
+<Email>vasilev88@abv.bg</Email>
+<AccName:>-2015631557</AccName:>
+<Password:>1492109653</Password:>
+</Employees>
+<Employees id="2">
+<Name>Vasil Vasilev</Name>
+<Adress>ul. Hristo Botev</Adress>
+<Tel>0888888888</Tel>
+<Email>vasilev88@abv.bg</Email>
+<AccName:>-2015631557</AccName:>
+<Password:>1492109653</Password:>
+</Employees>
+</Employees>
