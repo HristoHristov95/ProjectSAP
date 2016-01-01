@@ -9,11 +9,11 @@ public class User extends ClientSideInfo {
 		String str,name,adress,number,eMail;
 		int count=0;
 		String checker="false";
-		while(checker.equals("false"))
+		while(!checker.equals("true"))
 		{
 			if(count>=1)
 			{
-				System.out.println("Username or Password incorrect !");
+				System.out.println(checker);
 				System.out.println("You still have "+(3-count)+" attempts left !");
 			}
 			if(count==3)
@@ -24,14 +24,13 @@ public class User extends ClientSideInfo {
 			System.out.println("Please enter your Username: ");
 			str=input.nextLine();
 			ClientSideInfo.printOut.println(str);
-			System.out.println("Please enter your Password: ");// trqa passa da e sus zvezdi4ki
+			System.out.println("Please enter your Password: ");
 			str=input.nextLine();
-			//str=new jline.ConsoleReader().readLine(new Character(*));
 			ClientSideInfo.printOut.println(str);
-			checker=scan1.nextLine();
+			checker=ClientSideInfo.scan1.nextLine();
 			count++;
 		}
-		System.out.println(checker);
+		System.out.println(ClientSideInfo.scan1.nextLine());
 		str=scan1.nextLine(); // tova opredelq dali e ADMIN EMPLOYEE ili CUSTOMER i fakti4eski servera vrushta info kakuv dostup mu razreshava da ima !!!
 		name=scan1.nextLine();
 		adress=scan1.nextLine();
@@ -48,7 +47,7 @@ public class User extends ClientSideInfo {
 	{
 		Boolean checker=false;
 		Scanner input=new Scanner(System.in);
-		System.out.println("Please enter youre personal data .");
+		System.out.println("Please enter your personal data .");
 		BasicInfo temp1=new BasicInfo();
 		while(checker != true)
 		{
@@ -89,25 +88,30 @@ public class User extends ClientSideInfo {
 		ClientSideInfo.printOut.println(temp1.getAccName());
 		ClientSideInfo.printOut.println(temp1.getPass());
 		System.out.println(ClientSideInfo.scan1.nextLine());
+		System.out.println(ClientSideInfo.scan1.nextLine());
+		temp1.setName(ClientSideInfo.scan1.nextLine());
+		temp1.setAdress(ClientSideInfo.scan1.nextLine());
+		temp1.setNumber(ClientSideInfo.scan1.nextLine());
+		temp1.setEmail(ClientSideInfo.scan1.nextLine());
 		RegisteredCustomer newCust=new RegisteredCustomer(temp1.getName(),temp1.getAdress(),temp1.getNumber(),temp1.getEmail());
 		newCust.CustomerMenu();
 		input.close();
 	}
 	public static void ShowOffers()
 	{
-		int number=0;
-		number=Integer.parseInt(ClientSideInfo.scan1.nextLine());
-		for(int i=0;i<number;i++) //trqa sa umnoji 
+		String temp=ClientSideInfo.scan1.nextLine();
+		while(!temp.equals("Return")) 
 		{
-			String s=ClientSideInfo.scan1.nextLine();
-			System.out.println(s);
+			System.out.println(temp);
+			temp=ClientSideInfo.scan1.nextLine();
 		}
+		System.out.println(ClientSideInfo.scan1.nextLine());
 	}
 	public static void main(String[] args) {
 		Scanner inputCons;
 		String enteredOption="";
 		try{
-			ClientSideInfo.sock=new Socket("localhost",1909);
+			ClientSideInfo.sock=new Socket("localhost",1913);
 			ClientSideInfo.scan1=new Scanner(sock.getInputStream());
 			ClientSideInfo.printOut=new PrintStream(sock.getOutputStream());
 			inputCons=new Scanner(System.in);
@@ -117,9 +121,10 @@ public class User extends ClientSideInfo {
 			System.out.println("(Press 2) Register for offer");
 			System.out.println("(Press 3) Show list with offers");
 			System.out.println("(Press 0) Exit program");
+			System.out.println("---------------------");
+			System.out.println("Please select an option : ");
 			while(!enteredOption.equals("0"))
 			{
-				System.out.println("Please select an option : ");
 				enteredOption=inputCons.nextLine();
 				switch(enteredOption){
 				case"1":
@@ -132,10 +137,10 @@ public class User extends ClientSideInfo {
 					
 				default: System.out.println("Please enter valid option !"); break;
 				}
-				
+				System.out.println("Please select an option : ");
 			}
 		}catch(IOException e){
-			
+			System.out.print(e.getMessage());
 		}
 		
 	}

@@ -27,7 +27,7 @@ public class ReadWriteCustomerInfo implements ReadWrite {
 				doc.getDocumentElement().normalize();
 		
 				 NodeList nList = doc.getElementsByTagName("Customers");
-				  for (int temp = 0; temp < (nList.getLength()-1); temp++) {
+				  for (int temp = 0; temp < nList.getLength(); temp++) {
 			            Node nNode = nList.item(temp);
 			            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 			            	Person temporary=new Person();
@@ -60,7 +60,7 @@ public class ReadWriteCustomerInfo implements ReadWrite {
 	            Element mainRootElement = doc.createElementNS("XMLDOM", "Customers");
 	            doc.appendChild(mainRootElement);    
 	            
-	            for(int i=0;i<list.size();i++)
+	            for(int i=1;i<list.size();i++)
 	            {
 	            	mainRootElement.appendChild(getEmployee(doc,Person.attributeIDCustomer, list.get(i).getName(), list.get(i).getAdress(), list.get(i).getNumber(),list.get(i).getEmail(),list.get(i).getAccName(),list.get(i).getPassword()));
 	            }

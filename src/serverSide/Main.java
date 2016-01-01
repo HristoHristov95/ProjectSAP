@@ -35,34 +35,34 @@ public class Main {
 		ReadWriteOfferInfo offers=new ReadWriteOfferInfo();
 		ListHolder holder=offers.readFile();
 		ArrayList<OfferInfo> list=holder.getListOfferInfo();
-		for(int i=0;i<list.size();i++)
+		for(int i=1;i<list.size();i++)
 		{
-			newServer.getOutputStream().println(list.get(i).getDestinationName());
-			newServer.getOutputStream().println(list.get(i).getLenghtOfDestination());
-			newServer.getOutputStream().println(list.get(i).getPrice());
-			newServer.getOutputStream().println(list.get(i).getHotels());
-			newServer.getOutputStream().println(list.get(i).getTravelingWithVehicle());
-			newServer.getOutputStream().println(list.get(i).getDaysOfBeginingAndEnd());
-			newServer.getOutputStream().println(list.get(i).getAllBonusInfo());
-			newServer.getOutputStream().println(list.get(i).getCreatorOfOfferName());
-			newServer.getOutputStream().println(list.get(i).getCreatorOfOfferNumber());
-			newServer.getOutputStream().println(list.get(i).getCreatorOfOfferEmail());
+			newServer.getOutputStream().println("Destination : "+list.get(i).getDestinationName());
+			newServer.getOutputStream().println("Days that this excursion will last : "+list.get(i).getLenghtOfDestination());
+			newServer.getOutputStream().println("Price : "+list.get(i).getPrice());
+			newServer.getOutputStream().println("Hotels that will be used : "+list.get(i).getHotels());
+			newServer.getOutputStream().println("Vehicles that will be used by this agency for this destination : "+list.get(i).getTravelingWithVehicle());
+			newServer.getOutputStream().println("Date of begining and ending of the excursion : "+list.get(i).getDaysOfBeginingAndEnd());
+			newServer.getOutputStream().println("Bonus information about this excursion : "+list.get(i).getAllBonusInfo());
+			newServer.getOutputStream().println("Creator of this offer name : "+list.get(i).getCreatorOfOfferName());
+			newServer.getOutputStream().println("Creator of this offer mobile number : "+list.get(i).getCreatorOfOfferNumber());
+			newServer.getOutputStream().println("Creator of this offer E-mail adress : "+list.get(i).getCreatorOfOfferEmail());
+			newServer.getOutputStream().println("--------------------------");
 		}
+		newServer.getOutputStream().println("Return");
+		newServer.getOutputStream().println("---------------------");
 	}
 	public static void main(String[] args) {
 		try{
 			ServerInfo newServer=new ServerInfo();
 			newServer.createServerLink();
-		/*	ServerInfo.server=new ServerSocket(1212);
-			ServerInfo.socket=ServerInfo.server.accept();
-			newServer.getScannerInput()=new Scanner(ServerInfo.socket.getInputStream());
-			newServer.getOutputStream()=new PrintStream(ServerInfo.socket.getOutputStream());*/
 			String temp=newServer.getScannerInput().nextLine();
-			while(!temp.equals("0")){
+			while(!temp.equals("True")){
 				switch(temp){
-				case"1": Validator validate= new Validator(); validate.checkEnteredInfo(newServer); break;
-				case"2": createCustomerRegistration(newServer); break;
-				case"3": showOffers(newServer); break;
+				case "1": Validator validate= new Validator(); validate.checkEnteredInfo(newServer); break;
+				case "2": createCustomerRegistration(newServer); break;
+				case "3": showOffers(newServer); break;
+				case "0": newServer.getNextClientIfAvailable(); break;
 				}
 				temp=newServer.getScannerInput().nextLine();
 			}
@@ -71,6 +71,5 @@ public class Main {
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-		
 	}
 }

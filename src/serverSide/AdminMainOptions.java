@@ -1,4 +1,5 @@
 package serverSide;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminMainOptions {
@@ -20,12 +21,18 @@ public class AdminMainOptions {
 	}
 	public void createEmployee(){
 		Person person=new Person();
-		person.setName(this.getServerInfo().getScannerInput().nextLine());
-		person.setAdress(this.getServerInfo().getScannerInput().nextLine());
-		person.setNumber(this.getServerInfo().getScannerInput().nextLine());
-		person.setEmail(this.getServerInfo().getScannerInput().nextLine());
-		person.createAccHash(this.getServerInfo().getScannerInput().nextLine());
-		person.createPassHash(this.getServerInfo().getScannerInput().nextLine());
+		String name=this.getServerInfo().getScannerInput().nextLine();
+		String adress=this.getServerInfo().getScannerInput().nextLine();
+		String number=this.getServerInfo().getScannerInput().nextLine();
+		String email=this.getServerInfo().getScannerInput().nextLine();
+		String accName=this.getServerInfo().getScannerInput().nextLine();
+		String password=this.getServerInfo().getScannerInput().nextLine();
+		person.setName(name);
+		person.setAdress(adress);
+		person.setNumber(number);
+		person.setEmail(email);
+		person.createAccHash(accName);
+		person.createPassHash(password);
 		ReadWriteEmployeeInfo newEmployee=new ReadWriteEmployeeInfo();
 		ListHolder temp=newEmployee.readFile();
 		ArrayList<Person> allPeople=temp.getListPerson();
@@ -59,6 +66,56 @@ public class AdminMainOptions {
 		newEmployee.writeFile(temp);
 		this.getServerInfo().getOutputStream().println("Successfully deleted employee !");
 	}
+	public void deletingFromOffers(String[] name,String[] numbers,String[] emails,int getListElement)
+	{
+		ReadWriteOfferInfo info=new ReadWriteOfferInfo();
+		ListHolder holder=info.readFile();
+		ArrayList<OfferInfo> list=holder.getListOfferInfo();
+		String tempName=" ",tempNumbers=" ",tempEmails=" ";
+		for(int i=0;i<name.length;i++)
+		{
+			if(name[i].equals("delete") || name[i].equals(" "))
+			{
+				continue;
+			}
+			tempName= tempName+"*"+name[i];
+			tempNumbers=tempNumbers+"*"+numbers[i];
+			tempEmails=tempEmails+"*"+emails[i];
+		}
+		list.get(getListElement).setCustomersNames(tempName);
+		list.get(getListElement).setCustomersNumbers(tempNumbers);
+		list.get(getListElement).setCustomersEmails(tempEmails);
+		holder.setListOfferInfo(list);
+		info.writeFile(holder);
+	}
+	public void deleteCustomerFromTheOffersList(ArrayList<Person> listWithPersonToDelete,int elementToDelete)
+	{
+		ReadWriteOfferInfo info=new ReadWriteOfferInfo();
+		ListHolder holder=info.readFile();
+		ArrayList<OfferInfo> list=holder.getListOfferInfo();
+		int getListElement=-1;
+		String[] name=null;
+		String[] numbers=null;
+		String[] emails=null;
+		for(int i=1;i<list.size();i++)
+		{
+			name=list.get(i).getCustomersNames().split("\\*");
+			numbers=list.get(i).getCustomersNumbers().split("\\*");
+			emails=list.get(i).getCustomersEmails().split("\\*");
+			for(int temp=1;temp<name.length;temp++)
+			{
+				if(name[temp].equals(listWithPersonToDelete.get(elementToDelete).getName()))
+				{
+					name[temp]="delete";
+					numbers[temp]="delete";
+					emails[temp]="delete";
+					getListElement=i;
+					deletingFromOffers(name,numbers,emails,getListElement);
+					break;
+				}
+			}
+		}
+	}
 	public void deleteCustomer(){ // trqbva da trie informaciqta ot ofertite za toq 4ovek
 		
 		boolean checker=false;
@@ -77,6 +134,7 @@ public class AdminMainOptions {
 			if(list.get(i).getName().equals(person.getName()) && list.get(i).getNumber().equals(person.getNumber()))
 			{
 				checker=true;
+				deleteCustomerFromTheOffersList(list,i);
 				list.remove(i);
 			}
 		}
@@ -112,14 +170,12 @@ public class AdminMainOptions {
 		ReadWriteEmployeeInfo allEmployees=new ReadWriteEmployeeInfo();
 		ListHolder holder=allEmployees.readFile();
 		ArrayList<Person> employees=holder.getListPerson();
-		for(int i=0;i<employees.size();i++)
+		for(int i=1;i<employees.size();i++)
 		{
-			this.getServerInfo().getOutputStream().println(employees.get(i).getName());
-			this.getServerInfo().getOutputStream().println(employees.get(i).getNumber());
-			this.getServerInfo().getOutputStream().println(employees.get(i).getAdress());
-			this.getServerInfo().getOutputStream().println(employees.get(i).getEmail());
+			this.getServerInfo().getOutputStream().println("Employee name : "+employees.get(i).getName()+" .Employee mobile number : "+employees.get(i).getNumber()+" .Employee adress : "+employees.get(i).getAdress()+" .Employee E-mail adress : "+employees.get(i).getEmail());
 		}
 		this.getServerInfo().getOutputStream().println("Return");
+		this.getServerInfo().getOutputStream().println("---------------");
 	}
 	public void updateOffer(){
 		int updateNumber=-1;
@@ -170,7 +226,8 @@ public class AdminMainOptions {
 			{
 				this.getServerInfo().getOutputStream().println("found");
 				String name1=this.getServerInfo().getScannerInput().nextLine();
-				if(name1.equals("Return"))
+				String temporary=name1;
+				if(temporary.equals("Return"))
 				{
 					return;
 				}
@@ -185,6 +242,8 @@ public class AdminMainOptions {
 				person.get(i).setEmail(email);
 				person.get(i).createAccHash(account);
 				person.get(i).createPassHash(password);
+				holder.setListPerson(person);
+				employee.writeFile(holder);
 				this.getServerInfo().getOutputStream().println("Successfully updated employee information ! ");
 				return ;
 			}
@@ -201,6 +260,8 @@ public class AdminMainOptions {
 			if(list.get(i).getDestinationName().equals(destinationName))
 			{
 				list.remove(i);
+				holder.setListOfferInfo(list);
+				offer.writeFile(holder);
 				this.getServerInfo().getOutputStream().println("found");
 				this.getServerInfo().getOutputStream().println("Destination successfully deleted !");
 				return;
@@ -212,23 +273,41 @@ public class AdminMainOptions {
 		ReadWriteOfferInfo allOffers=new ReadWriteOfferInfo();
 		ListHolder holder=allOffers.readFile();
 		ArrayList<OfferInfo> list=holder.getListOfferInfo();
-		for(int i=0;i<list.size();i++)
+		for(int i=1;i<list.size();i++)
 		{
-			this.getServerInfo().getOutputStream().println(list.get(i).getDestinationName());
-			this.getServerInfo().getOutputStream().println(list.get(i).getLenghtOfDestination());
-			this.getServerInfo().getOutputStream().println(list.get(i).getPrice());
-			this.getServerInfo().getOutputStream().println(list.get(i).getHotels());
-			this.getServerInfo().getOutputStream().println(list.get(i).getTravelingWithVehicle());
-			this.getServerInfo().getOutputStream().println(list.get(i).getDaysOfBeginingAndEnd());
-			this.getServerInfo().getOutputStream().println(list.get(i).getAllBonusInfo());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCreatorOfOfferName());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCreatorOfOfferNumber());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCreatorOfOfferEmail());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCustomersNames());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCustomersNumbers());
-			this.getServerInfo().getOutputStream().println(list.get(i).getCustomersEmails());
+			this.getServerInfo().getOutputStream().println("Destination : "+ list.get(i).getDestinationName());
+			this.getServerInfo().getOutputStream().println("Days that this excursion will last : "+list.get(i).getLenghtOfDestination());
+			this.getServerInfo().getOutputStream().println("Price : "+list.get(i).getPrice());
+			this.getServerInfo().getOutputStream().println("Hotels that will be used : "+list.get(i).getHotels());
+			this.getServerInfo().getOutputStream().println("Vehicles that will be used by this agency for this destination : "+list.get(i).getTravelingWithVehicle());
+			this.getServerInfo().getOutputStream().println("Date of begining and ending of the excursion : "+list.get(i).getDaysOfBeginingAndEnd());
+			this.getServerInfo().getOutputStream().println("Bonus information about this excursion : "+list.get(i).getAllBonusInfo());
+			this.getServerInfo().getOutputStream().println("Creator of this offer name : "+list.get(i).getCreatorOfOfferName());
+			this.getServerInfo().getOutputStream().println("Creator of this offer mobile number : "+list.get(i).getCreatorOfOfferNumber());
+			this.getServerInfo().getOutputStream().println("Creator of this offer E-mail adress : "+list.get(i).getCreatorOfOfferEmail());
+			String[] names=list.get(i).getCustomersNames().split("\\*");
+			String[] numbers=list.get(i).getCustomersNumbers().split("\\*");
+			String[] emails=list.get(i).getCustomersEmails().split("\\*");
+			for(int temp=1;temp<names.length;temp++)
+			{
+				this.getServerInfo().getOutputStream().println("Customers name : "+names[temp]+" .Customers mobile number : "+numbers[temp]+" .Customers E-Mail : "+emails[temp]);
+			}
+			this.getServerInfo().getOutputStream().println("--------------------------");
 		}
-		this.getServerInfo().getOutputStream().println("------------------");
+		this.getServerInfo().getOutputStream().println("Return");
+		this.getServerInfo().getOutputStream().println("---------------");
+	}
+	public void viewCustomers()
+	{
+		ReadWriteCustomerInfo customer=new ReadWriteCustomerInfo();
+		ListHolder holder=customer.readFile();
+		ArrayList<Person> list=holder.getListPerson();
+		for(int i=1;i<list.size();i++)
+		{
+			this.getServerInfo().getOutputStream().println("Name of customer : "+list.get(i).getName()+" .Number of customer : "+list.get(i).getNumber()+" .The E-mail of the customer : "+list.get(i).getEmail()+" .The adress of the customer : "+list.get(i).getAdress());
+		}
+		this.getServerInfo().getOutputStream().println("Return");
+		this.getServerInfo().getOutputStream().println("-----------------");
 	}
 	public void adminOptions(Person person,ServerInfo info){
 		this.setServerInfo(info);
@@ -250,8 +329,14 @@ public class AdminMainOptions {
 			case "UpdateEmployee": this.updateEmployee(); break;
 			case "DeleteOffer": this.deleteOffer(); break;
 			case "ViewOffers": this.viewOffers(); break;
+			case "ViewAllCustomers": this.viewCustomers(); break;
 			}
 			userInput=this.getServerInfo().getScannerInput().nextLine();
+		}
+		try{
+		this.getServerInfo().getNextClientIfAvailable();
+		}catch(IOException e){
+			System.out.println(e.getMessage());
 		}
 	}
 }

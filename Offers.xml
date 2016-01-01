@@ -11,18 +11,33 @@
 <CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
 <CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
 <CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> *Tester Tester</CustomersNames>
+<CustomersNumbers> *0896784444</CustomersNumbers>
+<CustomersEmails> *asdasd@abv.bg</CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>Sofia</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123sdfsdf</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
 <CustomersNames> </CustomersNames>
 <CustomersNumbers> </CustomersNumbers>
 <CustomersEmails> </CustomersEmails>
 </Offers>
 <Offers id="11">
-<Destination>Brazil</Destination>
-<Lenght>3days5night</Lenght>
-<Price>1111.0</Price>
-<Hotels>brazil hotel*****, alabama hotel*****</Hotels>
-<Vehicles>airplane</Vehicles>
-<DateOfBeginingAndEnd>23-22</DateOfBeginingAndEnd>
-<BonusInfo/>
+<Destination>New York</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123123</BonusInfo>
 <CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
 <CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
 <CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>

@@ -15,7 +15,7 @@ public class Operations extends BasicInfo {
 			check1=temporary.checkName(s);
 			System.out.println("Please enter the employee's adress: ");
 			s=input.nextLine();
-			setAdress(s);
+			temporary.setAdress(s);
 			System.out.println("Please enter the employee's mobile number: ");
 			s=input.nextLine();
 			check2=temporary.checkNumber(s);
@@ -53,7 +53,6 @@ public class Operations extends BasicInfo {
 			ClientSideInfo.printOut.println(temporary.getAccName());
 			ClientSideInfo.printOut.println(temporary.getPass());
 		System.out.println(ClientSideInfo.scan1.nextLine());
-		input.close();
 	}
 	public void deleteEmployeeOrCustomersAccount(){
 		boolean checker=false;
@@ -89,13 +88,12 @@ public class Operations extends BasicInfo {
 		ClientSideInfo.printOut.println(temp.getName());
 		ClientSideInfo.printOut.println(temp.getNumber());
 		System.out.println(ClientSideInfo.scan1.nextLine());
-		input.close();
 	}
 	public void createOffer()
 	{
+		ArrayList<String> list=new ArrayList<String>();
 		boolean acceptedInfo=false;
 		String check="";
-		ArrayList<String> list=new ArrayList<String>();
 		Scanner input=new Scanner(System.in);
 		String destination="",lenghtOfDestination="",hotels="",travelingWithVehicles="",daysOfBeginingAndEnd="",price1="";
 		double price=0;
@@ -106,12 +104,7 @@ public class Operations extends BasicInfo {
 			System.out.println("Please enter information about the lenght of the excursion: ");
 			lenghtOfDestination=input.nextLine();
 			System.out.println("Please enter the price of the excursion: ");
-			try{
-				price=Double.parseDouble(input.nextLine());
-				price1=String.valueOf(price);
-			}catch(InputMismatchException e){
-				System.out.println("You have entered invalid informatio !");
-			}
+			price1=input.nextLine();
 			System.out.println("Please enter names of hotels and the stars that they are (Example: \"Dubai Hotel***\")");
 			hotels=input.nextLine();
 			System.out.println("Please enter all the vehicles that will be used by the travel agency during this excursion: ");
@@ -153,8 +146,7 @@ public class Operations extends BasicInfo {
 			allbonusinfo=allbonusinfo+list.get(i);
 		}
 		ClientSideInfo.printOut.println(allbonusinfo);
-		System.out.println(ClientSideInfo.scan1.next());
-		input.close();
+		System.out.println(ClientSideInfo.scan1.nextLine());
 	}
 	public void updateOffer(String name,String number,String email)
 	{
@@ -171,12 +163,7 @@ public class Operations extends BasicInfo {
 						System.out.println("Please enter information about the lenght of the excursion: ");
 						lenghtOfDestination=input.nextLine();
 						System.out.println("Please enter the price of the excursion: ");
-						try{
-							price=Double.parseDouble(input.nextLine());
-							price1=String.valueOf(price);
-						}catch(InputMismatchException e){
-							System.out.println("You have entered invalid informatio !");
-						}
+						price1=input.nextLine();
 						System.out.println("Please enter names of hotels and the stars that they are (Example: \"Dubai Hotel***\")");
 						hotels=input.nextLine();
 						System.out.println("Please enter all the vehicles that will be used by the travel agency during this excursion: ");
@@ -199,7 +186,6 @@ public class Operations extends BasicInfo {
 					}
 		else{
 			System.out.println("The element was not found or you dont have the authority to make changes. Returning to menu with options ");
-			input.close();
 			return;
 			}
 		ClientSideInfo.printOut.println(lenghtOfDestination);
@@ -212,8 +198,7 @@ public class Operations extends BasicInfo {
 			allbonusInfo=allbonusInfo+" "+list.get(i);
 		}
 		ClientSideInfo.printOut.println(allbonusInfo);
-		System.out.println(ClientSideInfo.scan1.next());
-		input.close();
+		System.out.println(ClientSideInfo.scan1.nextLine());
 }
 	public void viewOffersOrViewEmployees()
 	{
@@ -223,6 +208,7 @@ public class Operations extends BasicInfo {
 		{
 			System.out.println(temp);
 		}
+		System.out.println(ClientSideInfo.scan1.nextLine());
 	}
 	public void updateEmployee()
 	{
@@ -248,19 +234,18 @@ public class Operations extends BasicInfo {
 			else{
 				System.out.println("Employee not found !");
 			}
-			input.close();
 		}
 		else{
 			System.out.println("The information you have entered is invalid returning to main menu options ...");
-			input.close();
 			return ;
 		}
 	}
 	public void updateEmployeeOrCustomerPersonalInfo()
 	{
 		BasicInfo person=new BasicInfo();
-		boolean checker=false;
+		boolean checker=false,accChecker=false,passChecker=false;
 		Scanner input=new Scanner(System.in);
+		String newAcc,newPassword;
 		System.out.println("Here is the list with the options for updates : ");
 		System.out.println("(Press 1) Update name.");
 		System.out.println("(Press 2) Update number. ");
@@ -275,97 +260,135 @@ public class Operations extends BasicInfo {
 			System.out.println("Please enter your full name : ");
 			String name=input.nextLine();
 			checker=person.checkName(name);
-			if(checker)
+			System.out.println("Please enter your new account name: ");
+			newAcc=input.nextLine();
+			System.out.println("Please enter your new password : ");
+			newPassword=input.nextLine();
+			accChecker=person.checkAccName(newAcc);
+			passChecker=person.checkPass(newPassword);
+			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("1");
 				ClientSideInfo.printOut.println(name);
+				ClientSideInfo.printOut.println(person.getAccName());
+				ClientSideInfo.printOut.println(person.getPass());
 			}
 			else{
 				System.out.println("Invalid info. Returning to main menu... ");
 				ClientSideInfo.printOut.println("Invalid");
-				input.close();
 				return;
 			}
-			input.close();
 			break;
 		case "2":
 			System.out.println("Please enter your number : ");
 			String number=input.nextLine();
 			checker=person.checkNumber(number);
-			if(checker)
+			System.out.println("Please enter your new account name: ");
+			newAcc=input.nextLine();
+			System.out.println("Please enter your new password : ");
+			newPassword=input.nextLine();
+			accChecker=person.checkAccName(newAcc);
+			passChecker=person.checkPass(newPassword);
+			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("2");
 				ClientSideInfo.printOut.println(number);
+				ClientSideInfo.printOut.println(person.getAccName());
+				ClientSideInfo.printOut.println(person.getPass());
 			}
 			else{
 				System.out.println("Invalid info. Returning to main menu... ");
 				ClientSideInfo.printOut.println("Invalid");
-				input.close();
 				return;
 			}
-			input.close();
 			break;
 		case "3":
 			System.out.println("Please enter your E-mail : ");
 			String Email=input.nextLine();
 			checker=person.checkEmail(Email);
-			if(checker)
+			System.out.println("Please enter your new account name: ");
+			newAcc=input.nextLine();
+			System.out.println("Please enter your new password : ");
+			newPassword=input.nextLine();
+			accChecker=person.checkAccName(newAcc);
+			passChecker=person.checkPass(newPassword);
+			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("3");
 				ClientSideInfo.printOut.println(Email);
+				ClientSideInfo.printOut.println(person.getAccName());
+				ClientSideInfo.printOut.println(person.getPass());
 			}
 			else{
 				System.out.println("Invalid info. Returning to main menu... ");
 				ClientSideInfo.printOut.println("Invalid");
-				input.close();
 				return;
 			}
-			input.close();
 			break;
 		case "4":
 			System.out.println("Please enter your adress : ");
 			String adress=input.nextLine();
 			person.setAdress(adress);
-			ClientSideInfo.printOut.println("4");
-			ClientSideInfo.printOut.println(adress);
-			input.close();
+			System.out.println("Please enter your new account name: ");
+			newAcc=input.nextLine();
+			System.out.println("Please enter your new password : ");
+			newPassword=input.nextLine();
+			accChecker=person.checkAccName(newAcc);
+			passChecker=person.checkPass(newPassword);
+			if(accChecker==true && passChecker==true)
+			{
+				ClientSideInfo.printOut.println("4");
+				ClientSideInfo.printOut.println(adress);
+				ClientSideInfo.printOut.println(person.getAccName());
+				ClientSideInfo.printOut.println(person.getPass());
+			}
+			else{
+				System.out.println("Invalid info. Returning to main menu... ");
+				ClientSideInfo.printOut.println("Invalid");
+				return;
+			}
 			break;
 		case "5":
 			System.out.println("Please enter your Account Name : ");
 			String AccName=input.nextLine();
 			checker=person.checkAccName(AccName);
-			if(checker)
+			System.out.println("Please enter your new password : ");
+			newPassword=input.nextLine();
+			passChecker=person.checkPass(newPassword);
+			if(checker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("5");
 				ClientSideInfo.printOut.println(AccName);
+				ClientSideInfo.printOut.println(person.getPass());
 			}
 			else{
 				System.out.println("Invalid info. Returning to main menu... ");
 				ClientSideInfo.printOut.println("Invalid");
-				input.close();
 				return;
 			}
-			input.close();
 			break;
 		case "6":
 			System.out.println("Please enter your Password : ");
 			String password=input.nextLine();
 			checker=person.checkPass(password);
-			if(checker)
+			System.out.println("Please enter your new account name: ");
+			newAcc=input.nextLine();
+			accChecker=person.checkAccName(newAcc);
+			if(checker==true && accChecker==true)
 			{
 				ClientSideInfo.printOut.println("6");
 				ClientSideInfo.printOut.println(password);
+				ClientSideInfo.printOut.println(person.getAccName());
 			}
 			else{
 				System.out.println("Invalid info. Returning to main menu... ");
 				ClientSideInfo.printOut.println("Invalid");
-				input.close();
 				return;
 			}
-			input.close();
 			break;
-		default: System.out.println("Invalid option. Returning to main menu...");ClientSideInfo.printOut.println("Invalid"); input.close(); return;
+		default: System.out.println("Invalid option. Returning to main menu...");ClientSideInfo.printOut.println("Invalid"); return;
 		}
+		System.out.println(ClientSideInfo.scan1.nextLine());
 	}
 	public void deleteOffer()
 	{
@@ -377,13 +400,11 @@ public class Operations extends BasicInfo {
 		if(check.equals("found"))
 		{
 			System.out.println(ClientSideInfo.scan1.nextLine());
-			input.close();
 			return;
 		}
 		else{
-			System.out.println("Destination you wanted to delete was not found. Returing to menu ...");
+			System.out.println("Destination you wanted to delete was not found or you dont have the authority to delete it. Returing to menu ...");
 			}
-		input.close();
 	}
 	public void enterInfoForOffer()
 	{
@@ -393,6 +414,5 @@ public class Operations extends BasicInfo {
 		name=input.nextLine();
 		ClientSideInfo.printOut.println(name);
 		System.out.println(ClientSideInfo.scan1.nextLine());
-		input.close();
 	}
 }

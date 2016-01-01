@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Employees xmlns="XMLDOM">
 <Employees id="2">
-<Name>Vasil Vasilev</Name>
-<Adress>ul. Hristo Botev</Adress>
-<Tel>0888888888</Tel>
-<Email>vasilev88@abv.bg</Email>
-<AccName:>-2015631557</AccName:>
-<Password:>1492109653</Password:>
+<Name>Vasilev Vasilski</Name>
+<Adress>ulitsa struma</Adress>
+<Tel>0897887777</Tel>
+<Email>ulaqwe@abv.bg</Email>
+<AccName:>1866722788</AccName:>
+<Password:>1439326933</Password:>
 </Employees>
 <Employees id="2">
-<Name>Vasil Vasilev</Name>
-<Adress>ul. Hristo Botev</Adress>
-<Tel>0888888888</Tel>
-<Email>vasilev88@abv.bg</Email>
-<AccName:>-2015631557</AccName:>
-<Password:>1492109653</Password:>
+<Name>Zdravko Zahariev</Name>
+<Adress>ulitca vasil levski</Adress>
+<Tel>0891112222</Tel>
+<Email>uiop@abv.bg</Email>
+<AccName:>-344130792</AccName:>
+<Password:>841301933</Password:>
 </Employees>
 <Employees id="2">
-<Name>Vasil Vasilev</Name>
-<Adress>ul. Hristo Botev</Adress>
-<Tel>0888888888</Tel>
-<Email>vasilev88@abv.bg</Email>
-<AccName:>-2015631557</AccName:>
-<Password:>1492109653</Password:>
+<Name>Pavel Pavlov</Name>
+<Adress>ulitca ggqw</Adress>
+<Tel>0876665555</Tel>
+<Email>rty@abv.bg</Email>
+<AccName:>-1620538839</AccName:>
+<Password:>-1620539062</Password:>
 </Employees>
 </Employees>

@@ -1,5 +1,6 @@
 package serverSide;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Validator {
@@ -23,7 +24,7 @@ public class Validator {
 	public void checkEnteredInfo(ServerInfo newServer){
 		boolean validate=false;
 		int personsNumberInTheList=-1;
-		int switcher=0;
+		int switcher=0,counter=0,flag1=0;
 		Person person=null;
 		ListHolder holderAdmin;
 		ListHolder holderCustomer;
@@ -39,6 +40,16 @@ public class Validator {
 		ArrayList<Person> listWithEmployees=holderEmployee.getListPerson();
 		while(!validate)
 		{
+			if(counter>=1)
+			{
+				newServer.getOutputStream().println("Invalid username or password !");
+			}
+			if(counter==3)
+			{
+				flag1=1;
+				validate=true;
+				continue;
+			}
 			String userName= newServer.getScannerInput().nextLine();
 			String password=newServer.getScannerInput().nextLine();
 			switch(switcher){
@@ -61,15 +72,25 @@ public class Validator {
 				validate=true;
 			}
 			break;
-			case 3: System.exit(0); break;
 			}
-			switcher++;
+			counter++;
 		}
-		newServer.getOutputStream().println("You have been successfully logged in!");
-		switch(person.getAttributeID()){
-		case "1": AdminMainOptions adminOptions=new AdminMainOptions(); adminOptions.adminOptions(person,newServer); break;
-		case "2": EmployeeMainOptions employeeOptions=new EmployeeMainOptions(); employeeOptions.employeeOptions(person,newServer); break;
-		case "3": CustomerMainOptions customersOptions=new CustomerMainOptions(); customersOptions.customersOptions(person,newServer); break;
+		if(flag1==1)
+		{
+			try{
+				newServer.getNextClientIfAvailable();
+				}catch(IOException e){
+					System.out.println(e.getMessage());
+				}
+		}
+		else{
+			newServer.getOutputStream().println("true");
+			newServer.getOutputStream().println("You have been successfully logged in!");
+			switch(person.getAttributeID()){
+			case "1": AdminMainOptions adminOptions=new AdminMainOptions(); adminOptions.adminOptions(person,newServer); break;
+			case "2": EmployeeMainOptions employeeOptions=new EmployeeMainOptions(); employeeOptions.employeeOptions(person,newServer); break;
+			case "3": CustomerMainOptions customersOptions=new CustomerMainOptions(); customersOptions.customersOptions(person,newServer); break;
+			}
 		}
 	}
 }

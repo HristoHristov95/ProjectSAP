@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Customers xmlns="XMLDOM">
 <Customers id="3">
-<Name>Unknown</Name>
-<Adress>Unknown</Adress>
-<Tel>Unknown</Tel>
-<Email>Unknown</Email>
-<AccName:>Unknown</AccName:>
-<Password:>Unknown</Password:>
+<Name>Zdravko Zdravkov</Name>
+<Adress>nqkva ulica</Adress>
+<Tel>0898887777</Tel>
+<Email>qweqwr@abv.bg</Email>
+<AccName:>-460858686</AccName:>
+<Password:>-460858909</Password:>
+</Customers>
+<Customers id="3">
+<Name>Tester Tester</Name>
+<Adress>qweqwe</Adress>
+<Tel>0896784444</Tel>
+<Email>asdasd@abv.bg</Email>
+<AccName:>-2054142092</AccName:>
+<Password:>-1364024459</Password:>
 </Customers>
 </Customers>

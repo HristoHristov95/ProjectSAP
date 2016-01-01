@@ -27,7 +27,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 				doc.getDocumentElement().normalize();
 				
 				 NodeList nList = doc.getElementsByTagName("Offers");
-				  for (int temp = 0; temp < (nList.getLength()-1); temp++) {
+				  for (int temp = 0; temp < nList.getLength(); temp++) {
 			            Node nNode = nList.item(temp);
 			            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 			            	OfferInfo temporary=new OfferInfo();
@@ -66,7 +66,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 	            Element mainRootElement = doc.createElementNS("XMLDOM", "Offers");
 	            doc.appendChild(mainRootElement);    
 	            
-	            for(int i=0;i<list.size();i++)
+	            for(int i=1;i<list.size();i++)
 	            {
 	            	mainRootElement.appendChild(getEmployee(doc,OfferInfo.AttributeIDOffer, list.get(i).getDestinationName(),
 	            			list.get(i).getLenghtOfDestination(), list.get(i).getPrice(),list.get(i).getHotels(),list.get(i).getTravelingWithVehicle(),
