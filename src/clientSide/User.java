@@ -87,7 +87,13 @@ public class User extends ClientSideInfo {
 		ClientSideInfo.printOut.println(temp1.getEmail());
 		ClientSideInfo.printOut.println(temp1.getAccName());
 		ClientSideInfo.printOut.println(temp1.getPass());
-		System.out.println(ClientSideInfo.scan1.nextLine());
+		String temp=ClientSideInfo.scan1.nextLine();
+		if(temp.equals("Invalid"))
+		{
+			System.out.println("You have been already registered !");
+			return ;
+		}
+		System.out.println(temp);
 		System.out.println(ClientSideInfo.scan1.nextLine());
 		temp1.setName(ClientSideInfo.scan1.nextLine());
 		temp1.setAdress(ClientSideInfo.scan1.nextLine());
@@ -137,6 +143,13 @@ public class User extends ClientSideInfo {
 					
 				default: System.out.println("Please enter valid option !"); break;
 				}
+				System.out.println("---------------------");
+				System.out.println("Here are all available options:");
+				System.out.println("(Press 1) Login");
+				System.out.println("(Press 2) Register for offer");
+				System.out.println("(Press 3) Show list with offers");
+				System.out.println("(Press 0) Exit program");
+				System.out.println("---------------------");
 				System.out.println("Please select an option : ");
 			}
 		}catch(IOException e){

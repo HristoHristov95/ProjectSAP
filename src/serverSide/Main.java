@@ -7,12 +7,23 @@ public class Main {
 	
 	public static void createCustomerRegistration(ServerInfo newServer)
 	{
+		ReadWriteCustomerInfo customer=new ReadWriteCustomerInfo();
+		ListHolder holder=customer.readFile();
+		ArrayList<Person> list=holder.getListPerson();
 		String name=newServer.getScannerInput().nextLine();
 		String adress=newServer.getScannerInput().nextLine();
 		String number=newServer.getScannerInput().nextLine();
 		String email=newServer.getScannerInput().nextLine();
 		String accountName=newServer.getScannerInput().nextLine();
 		String password=newServer.getScannerInput().nextLine();
+		for(int i=0;i<list.size();i++)
+		{
+			if(list.get(i).getName().equals(name) && list.get(i).getEmail().equals(email) && list.get(i).getNumber().equals(number))
+			{
+				newServer.getOutputStream().println("Invalid");
+				return;
+			}
+		}
 		Person person=new Person();
 		person.setName(name);
 		person.setAdress(adress);
@@ -20,9 +31,6 @@ public class Main {
 		person.setEmail(email);
 		person.createAccHash(accountName);
 		person.createPassHash(password);
-		ReadWriteCustomerInfo customer=new ReadWriteCustomerInfo();
-		ListHolder holder=customer.readFile();
-		ArrayList<Person> list=holder.getListPerson();
 		list.add(person);
 		holder.setListPerson(list);
 		customer.writeFile(holder);

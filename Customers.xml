@@ -16,4 +16,12 @@
 <AccName:>-2054142092</AccName:>
 <Password:>-1364024459</Password:>
 </Customers>
+<Customers id="3">
+<Name>Peturn Test</Name>
+<Adress>qweq</Adress>
+<Tel>1234445555</Tel>
+<Email>qweqwe@abv.bg</Email>
+<AccName:>753554100</AccName:>
+<Password:>1508830999</Password:>
+</Customers>
 </Customers>

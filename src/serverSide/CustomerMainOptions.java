@@ -115,6 +115,20 @@ public class CustomerMainOptions {
 		String enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 		for(int i=1;i<list.size();i++)
 		{
+			String[] names=list.get(i).getCustomersNames().split("\\*");
+			String[] numbers=list.get(i).getCustomersNumbers().split("\\*");
+			String[] emails=list.get(i).getCustomersEmails().split("\\*");
+			for(int temp=0;temp<names.length;temp++)
+			{
+				if(names[temp].equals(this.getPerson().getName()) && numbers[temp].equals(this.getPerson().getNumber()) && emails[temp].equals(this.getPerson().getEmail()))
+				{
+					this.getServerInfo().getOutputStream().println("You have already been registered for this destination !");
+					return;
+				}
+			}
+		}
+		for(int i=1;i<list.size();i++)
+		{
 			if(list.get(i).getDestinationName().equals(enteredInfo))
 			{
 				String names=list.get(i).getCustomersNames();
