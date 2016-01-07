@@ -39,8 +39,13 @@ public class User extends ClientSideInfo {
 		    }
 		    System.out.println();
 			ClientSideInfo.printOut.println(password);
-			System.out.println("Please enter Master key for this account : ");
-			masterKey=input.nextLine();
+			 char passwordArray12[] = console.readPassword("Please enter master key of your account :  ");
+			    masterKey=new String(passwordArray12);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			ClientSideInfo.printOut.println(masterKey);
 			checker=ClientSideInfo.scan1.nextLine();
 			count++;
@@ -98,8 +103,13 @@ public class User extends ClientSideInfo {
 		    }
 		    System.out.println();
 			checker5=temp1.checkPass(password);
-			System.out.println("Please enter Master key for your account : ");
-			masterKey=input.nextLine();
+		    char passwordArray12[] = console.readPassword("Enter master key : ");
+		    masterKey=new String(passwordArray12);
+		    for(int i=0;i<masterKey.length();i++)
+		    {
+		    	System.out.print("*");
+		    }
+		    System.out.println();
 			if(check1==true && check2==true && check3==true && checker4==true && checker5==true)
 			{
 				checker=true;

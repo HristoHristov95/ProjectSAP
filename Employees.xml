@@ -64,4 +64,12 @@
 <AccName:>610661325</AccName:>
 <Password:>328498401</Password:>
 </Employees>
+<Employees id="2">
+<Name>Grigor Grigorkata</Name>
+<Adress>123</Adress>
+<Tel>0897893456</Tel>
+<Email>qwe1@abv.bg</Email>
+<AccName:>-693116859</AccName:>
+<Password:>1484574255</Password:>
+</Employees>
 </Employees>

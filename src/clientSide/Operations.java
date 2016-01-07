@@ -40,8 +40,13 @@ public class Operations extends BasicInfo {
 			    }
 			    System.out.println();
 				checker5=temporary.checkPass(password);
-				System.out.println("Please enter Master Key for this account : ");
-				masterKey=input.nextLine();
+				 char passwordArray12[] = console.readPassword("Please enter master key for this account : ");
+				    masterKey=new String(passwordArray12);
+				    for(int i=0;i<masterKey.length();i++)
+				    {
+				    	System.out.print("*");
+				    }
+				    System.out.println();
 			if(check1==true && check2==true && check3==true && checker4==true && checker5==true)
 			{
 				checker=true;
@@ -293,8 +298,13 @@ public class Operations extends BasicInfo {
 			    System.out.println();
 			accChecker=person.checkAccName(newAcc);
 			passChecker=person.checkPass(password);
-			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray12[] = console.readPassword("Please enter master key : ");
+			    masterKey=new String(passwordArray12);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("1");
@@ -325,8 +335,13 @@ public class Operations extends BasicInfo {
 			    System.out.println();
 			accChecker=person.checkAccName(newAcc);
 			passChecker=person.checkPass(password1);
-			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray123[] = console.readPassword("Enter master key : ");
+			    masterKey=new String(passwordArray123);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("2");
@@ -357,8 +372,13 @@ public class Operations extends BasicInfo {
 			    System.out.println();
 			accChecker=person.checkAccName(newAcc);
 			passChecker=person.checkPass(password2);
-			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray1234[] = console.readPassword("Enter master key : ");
+			    masterKey=new String(passwordArray1234);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(checker==true && accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("3");
@@ -389,8 +409,13 @@ public class Operations extends BasicInfo {
 			    System.out.println();
 			accChecker=person.checkAccName(newAcc);
 			passChecker=person.checkPass(password3);
-			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray12345[] = console.readPassword("Enter master key : ");
+			    masterKey=new String(passwordArray12345);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(accChecker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("4");
@@ -419,7 +444,13 @@ public class Operations extends BasicInfo {
 			    System.out.println();
 			passChecker=person.checkPass(password4);
 			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray123456[] = console.readPassword("Enter master key : ");
+			    masterKey=new String(passwordArray123456);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(checker==true && passChecker==true)
 			{
 				ClientSideInfo.printOut.println("5");
@@ -446,8 +477,13 @@ public class Operations extends BasicInfo {
 			System.out.println("Please enter your new account name: ");
 			newAcc=input.nextLine();
 			accChecker=person.checkAccName(newAcc);
-			System.out.println("Please enter the Master Key : ");
-			masterKey=input.nextLine();
+			  char passwordArray124[] = console.readPassword("Enter master key : ");
+			    masterKey=new String(passwordArray124);
+			    for(int i=0;i<masterKey.length();i++)
+			    {
+			    	System.out.print("*");
+			    }
+			    System.out.println();
 			if(checker==true && accChecker==true)
 			{
 				ClientSideInfo.printOut.println("6");
