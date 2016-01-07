@@ -12,15 +12,17 @@ public class Person {
 	private String eMail;
 	private String accName;
 	private String password;
-	public static final int numberForAccName=350;
-	public static final int numberForPassword=127;
-	public Person(String name,String adress,String number,String eMail,String accName,String password){
+	private String MasterKey;
+/*	public static final int numberForAccName=350;
+	public static final int numberForPassword=127;*/
+	public Person(String name,String adress,String number,String eMail,String accName,String password,String masterKey){
 		this.name=name;
 		this.adress=adress;
 		this.number=number;
 		this.eMail=eMail;
 		this.accName=accName;
 		this.password=password;
+		this.MasterKey=masterKey;
 	}
 	public Person()
 	{
@@ -30,6 +32,15 @@ public class Person {
 		this.eMail="Unknown";
 		this.accName="Unknown";
 		this.password="Unknown";
+		this.MasterKey="Unknown";
+	}
+	public void setMasterKey(String key)
+	{
+		this.MasterKey=key;
+	}
+	public String getMasterKey()
+	{
+		return this.MasterKey;
 	}
 	public void setAttributeID(String s){
 		this.currentAttributeID=s;
@@ -70,7 +81,7 @@ public class Person {
 	}
 	public void createAccHash(String s)
 	{
-		Integer result=Person.numberForAccName+s.hashCode(); 
+		Integer result=this.MasterKey.hashCode()+s.hashCode(); 
 		result=result+this.name.hashCode();
 		result=result+this.adress.hashCode();
 		result=result+this.number.hashCode();
@@ -86,7 +97,7 @@ public class Person {
 	}
 	public void createPassHash(String s)
 	{
-		Integer result=Person.numberForPassword+s.hashCode();
+		Integer result=this.MasterKey.hashCode()+s.hashCode();
 		result=result+this.name.hashCode();
 		result=result+this.adress.hashCode();
 		result=result+this.number.hashCode();
@@ -101,7 +112,7 @@ public class Person {
 		return this.password;
 	}
 	public boolean checkAcc(String accName){
-		Integer result=Person.numberForAccName+accName.hashCode(); 
+		Integer result=this.MasterKey.hashCode()+accName.hashCode(); 
 		result=result+this.name.hashCode();
 		result=result+this.adress.hashCode();
 		result=result+this.number.hashCode();
@@ -116,7 +127,7 @@ public class Person {
 		}
 	}
 	public boolean checkPassword(String password){
-		Integer result=Person.numberForPassword+password.hashCode(); 
+		Integer result=this.MasterKey.hashCode()+password.hashCode(); 
 		result=result+this.name.hashCode();
 		result=result+this.adress.hashCode();
 		result=result+this.number.hashCode();

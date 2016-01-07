@@ -24,4 +24,44 @@
 <AccName:>753554100</AccName:>
 <Password:>1508830999</Password:>
 </Customers>
+<Customers id="3">
+<Name>Kiril Stoqnov</Name>
+<Adress>ulitsa Pliska</Adress>
+<Tel>0893334444</Tel>
+<Email>qerewrwe@abv.bg</Email>
+<AccName:>-1815044442</AccName:>
+<Password:>-838031463</Password:>
+</Customers>
+<Customers id="3">
+<Name>Zdravko Zdravkov</Name>
+<Adress>nqkva ulica</Adress>
+<Tel>0898887777</Tel>
+<Email>qweqwr@abv.bg</Email>
+<AccName:>-460858686</AccName:>
+<Password:>-460858909</Password:>
+</Customers>
+<Customers id="3">
+<Name>Tester Tester</Name>
+<Adress>qweqwe</Adress>
+<Tel>0896784444</Tel>
+<Email>asdasd@abv.bg</Email>
+<AccName:>-2054142092</AccName:>
+<Password:>-1364024459</Password:>
+</Customers>
+<Customers id="3">
+<Name>Peturn Test</Name>
+<Adress>qweq</Adress>
+<Tel>1234445555</Tel>
+<Email>qweqwe@abv.bg</Email>
+<AccName:>753554100</AccName:>
+<Password:>1508830999</Password:>
+</Customers>
+<Customers id="3">
+<Name>Kiril Stoqnov</Name>
+<Adress>ulitsa Pliska</Adress>
+<Tel>0893334444</Tel>
+<Email>qerewrwe@abv.bg</Email>
+<AccName:>-1815044442</AccName:>
+<Password:>-838031463</Password:>
+</Customers>
 </Customers>

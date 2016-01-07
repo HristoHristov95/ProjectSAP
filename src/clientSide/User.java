@@ -1,12 +1,18 @@
 package clientSide;
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
 public class User extends ClientSideInfo {
 	public static void Login(){
+	    Console console = System.console();
+	    if (console == null) {
+	        System.out.println("Couldn't get Console instance");
+	        System.exit(0);
+	    }
 		Scanner input=new Scanner(System.in);
-		String str,name,adress,number,eMail;
+		String str,name,adress,number,eMail,masterKey;
 		int count=0;
 		String checker="false";
 		while(!checker.equals("true"))
@@ -24,9 +30,18 @@ public class User extends ClientSideInfo {
 			System.out.println("Please enter your Username: ");
 			str=input.nextLine();
 			ClientSideInfo.printOut.println(str);
-			System.out.println("Please enter your Password: ");
-			str=input.nextLine();
-			ClientSideInfo.printOut.println(str);
+			  System.out.println();
+			char passwordArray[] = console.readPassword("Enter your secret password: ");
+		    String password=new String(passwordArray);
+		    for(int i=0;i<password.length();i++)
+		    {
+		    	System.out.print("*");
+		    }
+		    System.out.println();
+			ClientSideInfo.printOut.println(password);
+			System.out.println("Please enter Master key for this account : ");
+			masterKey=input.nextLine();
+			ClientSideInfo.printOut.println(masterKey);
 			checker=ClientSideInfo.scan1.nextLine();
 			count++;
 		}
@@ -45,6 +60,12 @@ public class User extends ClientSideInfo {
 	}
 	public static void CreateRegistration()
 	{
+	    Console console = System.console();
+	    if (console == null) {
+	        System.out.println("Couldn't get Console instance");
+	        System.exit(1);
+	    }
+	    String masterKey="";
 		Boolean checker=false;
 		Scanner input=new Scanner(System.in);
 		System.out.println("Please enter your personal data .");
@@ -68,9 +89,17 @@ public class User extends ClientSideInfo {
 			System.out.println("Please enter your Account name: ");
 			s=input.nextLine();
 			checker4=temp1.checkAccName(s);
-			System.out.println("Please enter your Password: ");
-			s=input.nextLine();
-			checker5=temp1.checkPass(s);
+			  System.out.println();
+		    char passwordArray[] = console.readPassword("Enter your secret password: ");
+		    String password=new String(passwordArray);
+		    for(int i=0;i<password.length();i++)
+		    {
+		    	System.out.print("*");
+		    }
+		    System.out.println();
+			checker5=temp1.checkPass(password);
+			System.out.println("Please enter Master key for your account : ");
+			masterKey=input.nextLine();
 			if(check1==true && check2==true && check3==true && checker4==true && checker5==true)
 			{
 				checker=true;
@@ -87,6 +116,7 @@ public class User extends ClientSideInfo {
 		ClientSideInfo.printOut.println(temp1.getEmail());
 		ClientSideInfo.printOut.println(temp1.getAccName());
 		ClientSideInfo.printOut.println(temp1.getPass());
+		ClientSideInfo.printOut.println(masterKey);
 		String temp=ClientSideInfo.scan1.nextLine();
 		if(temp.equals("Invalid"))
 		{
@@ -116,6 +146,7 @@ public class User extends ClientSideInfo {
 	public static void main(String[] args) {
 		Scanner inputCons;
 		String enteredOption="";
+		//System.out.println("Console="+System.console());
 		try{
 			ClientSideInfo.sock=new Socket("localhost",1913);
 			ClientSideInfo.scan1=new Scanner(sock.getInputStream());
@@ -153,7 +184,7 @@ public class User extends ClientSideInfo {
 				System.out.println("Please select an option : ");
 			}
 		}catch(IOException e){
-			System.out.print(e.getMessage());
+			throw new RuntimeException(e);
 		}
 		
 	}

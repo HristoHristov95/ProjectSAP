@@ -101,7 +101,7 @@ public class EmployeeMainOptions {
 		ReadWriteEmployeeInfo employee=new ReadWriteEmployeeInfo();
 		ListHolder holder=employee.readFile();
 		ArrayList<Person> list=holder.getListPerson();
-		String enteredInfo,newAcc,newPassword;
+		String enteredInfo,newAcc,newPassword,masterKey;
 		for(int i=1;i<list.size();i++)
 		{
 			if(list.get(i).getName().equals(this.getPerson().getName()))
@@ -112,6 +112,8 @@ public class EmployeeMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setName(enteredInfo); 
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -120,6 +122,8 @@ public class EmployeeMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setNumber(enteredInfo); 
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -128,6 +132,8 @@ public class EmployeeMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setEmail(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -136,6 +142,8 @@ public class EmployeeMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setAdress(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -143,12 +151,16 @@ public class EmployeeMainOptions {
 				case "5":
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).createAccHash(enteredInfo); 
 					list.get(i).createPassHash(newPassword);
 					break;
 				case "6": 
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).createPassHash(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					break;
@@ -249,7 +261,7 @@ public void employeeOptions(Person person,ServerInfo newServer){
 		try{
 			this.getServerInfo().getNextClientIfAvailable();
 			}catch(IOException e){
-				System.out.println(e.getMessage());
+				throw new RuntimeException(e);
 			}
 	}
 }

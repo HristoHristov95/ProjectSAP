@@ -27,6 +27,8 @@ public class AdminMainOptions {
 		String email=this.getServerInfo().getScannerInput().nextLine();
 		String accName=this.getServerInfo().getScannerInput().nextLine();
 		String password=this.getServerInfo().getScannerInput().nextLine();
+		String masterKey=this.getServerInfo().getScannerInput().nextLine();
+		person.setMasterKey(masterKey);
 		person.setName(name);
 		person.setAdress(adress);
 		person.setNumber(number);
@@ -309,6 +311,36 @@ public class AdminMainOptions {
 		this.getServerInfo().getOutputStream().println("Return");
 		this.getServerInfo().getOutputStream().println("-----------------");
 	}
+	public void importDataFromXML()
+	{
+		boolean check=false;
+		ImportExportAllTheInformation info=new ImportExportAllTheInformation();
+		String fileName=this.getServerInfo().getScannerInput().nextLine();
+		check=info.importTheInformation(fileName);
+		if(check==true)
+		{
+			this.getServerInfo().getOutputStream().println("Successfully imported the information from the file into the current XML files !");
+		}
+		if(check==false)
+		{
+			this.getServerInfo().getOutputStream().println("Error with importing data");
+		}
+	}
+	public void exportDataFromXML()
+	{
+		boolean check=false;
+		ImportExportAllTheInformation info=new ImportExportAllTheInformation();
+		String fileName=this.getServerInfo().getScannerInput().nextLine();
+		check=info.exportTheInformation(fileName);
+		if(check==true)
+		{
+			this.getServerInfo().getOutputStream().println("Successfully exported the information from the files into the current XML file !");
+		}
+		if(check==false)
+		{
+			this.getServerInfo().getOutputStream().println("Error with exporting data");
+		}
+	}
 	public void adminOptions(Person person,ServerInfo info){
 		this.setServerInfo(info);
 		this.getServerInfo().getOutputStream().println("Admin");
@@ -330,13 +362,16 @@ public class AdminMainOptions {
 			case "DeleteOffer": this.deleteOffer(); break;
 			case "ViewOffers": this.viewOffers(); break;
 			case "ViewAllCustomers": this.viewCustomers(); break;
+			case "ImportData": this.importDataFromXML(); break;
+			case "ExportData": this.exportDataFromXML(); break;
+			case "ShutDown": System.exit(11);
 			}
 			userInput=this.getServerInfo().getScannerInput().nextLine();
 		}
 		try{
 		this.getServerInfo().getNextClientIfAvailable();
 		}catch(IOException e){
-			System.out.println(e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 }

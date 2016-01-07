@@ -42,7 +42,7 @@ public class ReadWriteAdminInfo implements ReadWrite {
 			            }
 			         }
 		  }catch(Exception e){
-			  System.out.println(e.getMessage());
+			  throw new RuntimeException(e);
 		  }
 		ListHolder holder=new ListHolder();
 		holder.setListPerson(list);
@@ -68,9 +68,9 @@ public class ReadWriteAdminInfo implements ReadWrite {
 	            DOMSource source = new DOMSource(doc);
 	            StreamResult file = new StreamResult(new File("Admins.xml"));
 	            transformer.transform(source, file);
-	 
 	        } catch (Exception e) {
-	            e.printStackTrace();
+	           // e.printStackTrace();
+	        	throw new RuntimeException(e);
 	            }
 	        }
 	public Node getEmployee(Document doc, String id, String name, String adress, String number,String email,String accountName,String passWord) {

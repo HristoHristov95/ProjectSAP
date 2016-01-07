@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Data xmlns="XMLDOM">
+<AllCurrentInformation id="1">
+<Name>Hristo Hristov</Name>
+<Adress>ul. Vasil Levski</Adress>
+<Tel>0897903663</Tel>
+<Email>hristo_ultimeted@yahoo.com</Email>
+<AccName:>-1147559456</AccName:>
+<Password:>413108541</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="2">
+<Name>Vasilev Vasilski</Name>
+<Adress>ulitsa struma</Adress>
+<Tel>0897887777</Tel>
+<Email>ulaqwe@abv.bg</Email>
+<AccName:>1866722788</AccName:>
+<Password:>1439326933</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="2">
+<Name>Zdravko Zahariev</Name>
+<Adress>ulitca vasil levski</Adress>
+<Tel>0891112222</Tel>
+<Email>uiop@abv.bg</Email>
+<AccName:>-344130792</AccName:>
+<Password:>841301933</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="2">
+<Name>Pavel Pavlov</Name>
+<Adress>ulitca ggqw</Adress>
+<Tel>0876665555</Tel>
+<Email>rty@abv.bg</Email>
+<AccName:>-1620538839</AccName:>
+<Password:>-1620539062</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="2">
+<Name>Stoqn  Stoqnov</Name>
+<Adress>asdasd</Adress>
+<Tel>1234567890</Tel>
+<Email>qweqw@abv.bg</Email>
+<AccName:>610661325</AccName:>
+<Password:>328498401</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="3">
+<Name>Zdravko Zdravkov</Name>
+<Adress>nqkva ulica</Adress>
+<Tel>0898887777</Tel>
+<Email>qweqwr@abv.bg</Email>
+<AccName:>-460858686</AccName:>
+<Password:>-460858909</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="3">
+<Name>Tester Tester</Name>
+<Adress>qweqwe</Adress>
+<Tel>0896784444</Tel>
+<Email>asdasd@abv.bg</Email>
+<AccName:>-2054142092</AccName:>
+<Password:>-1364024459</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="3">
+<Name>Peturn Test</Name>
+<Adress>qweq</Adress>
+<Tel>1234445555</Tel>
+<Email>qweqwe@abv.bg</Email>
+<AccName:>753554100</AccName:>
+<Password:>1508830999</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="3">
+<Name>Kiril Stoqnov</Name>
+<Adress>ulitsa Pliska</Adress>
+<Tel>0893334444</Tel>
+<Email>qerewrwe@abv.bg</Email>
+<AccName:>-1815044442</AccName:>
+<Password:>-838031463</Password:>
+</AllCurrentInformation>
+<AllCurrentInformation id="11">
+<Destination>Dubai</Destination>
+<Lenght>3day and 4 days</Lenght>
+<Price>1140</Price>
+<Hotels>Hotel dubai****, Hotel Plaza***</Hotels>
+<Vehicles>Airplane,Bus,Taxi cabs</Vehicles>
+<DateOfBeginingAndEnd>19.12.2015-23.12.2015</DateOfBeginingAndEnd>
+<BonusInfo>There will be free food !</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> *Tester Tester*Peturn Test</CustomersNames>
+<CustomersNumbers> *0896784444*1234445555</CustomersNumbers>
+<CustomersEmails> *asdasd@abv.bg*qweqwe@abv.bg</CustomersEmails>
+</AllCurrentInformation>
+<AllCurrentInformation id="11">
+<Destination>Sofia</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123sdfsdf</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</AllCurrentInformation>
+<AllCurrentInformation id="11">
+<Destination>New York</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123123</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</AllCurrentInformation>
+<AllCurrentInformation id="11">
+<Destination>&lt;</Destination>
+<Lenght>/&gt;</Lenght>
+<Price>asdfsd</Price>
+<Hotels>dfsdf</Hotels>
+<Vehicles>sdfsdf</Vehicles>
+<DateOfBeginingAndEnd>sdf</DateOfBeginingAndEnd>
+<BonusInfo>sdwer</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</AllCurrentInformation>
+</Data>

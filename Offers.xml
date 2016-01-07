@@ -45,4 +45,79 @@
 <CustomersNumbers> </CustomersNumbers>
 <CustomersEmails> </CustomersEmails>
 </Offers>
+<Offers id="11">
+<Destination>&lt;</Destination>
+<Lenght>/&gt;</Lenght>
+<Price>asdfsd</Price>
+<Hotels>dfsdf</Hotels>
+<Vehicles>sdfsdf</Vehicles>
+<DateOfBeginingAndEnd>sdf</DateOfBeginingAndEnd>
+<BonusInfo>sdwer</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>Dubai</Destination>
+<Lenght>3day and 4 days</Lenght>
+<Price>1140</Price>
+<Hotels>Hotel dubai****, Hotel Plaza***</Hotels>
+<Vehicles>Airplane,Bus,Taxi cabs</Vehicles>
+<DateOfBeginingAndEnd>19.12.2015-23.12.2015</DateOfBeginingAndEnd>
+<BonusInfo>There will be free food !</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> *Tester Tester*Peturn Test</CustomersNames>
+<CustomersNumbers> *0896784444*1234445555</CustomersNumbers>
+<CustomersEmails> *asdasd@abv.bg*qweqwe@abv.bg</CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>Sofia</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123sdfsdf</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>New York</Destination>
+<Lenght>123</Lenght>
+<Price>123</Price>
+<Hotels>123</Hotels>
+<Vehicles>123</Vehicles>
+<DateOfBeginingAndEnd>123</DateOfBeginingAndEnd>
+<BonusInfo>123123</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
+<Offers id="11">
+<Destination>&lt;</Destination>
+<Lenght>/&gt;</Lenght>
+<Price>asdfsd</Price>
+<Hotels>dfsdf</Hotels>
+<Vehicles>sdfsdf</Vehicles>
+<DateOfBeginingAndEnd>sdf</DateOfBeginingAndEnd>
+<BonusInfo>sdwer</BonusInfo>
+<CreatorOfOfferName>Hristo Hristov</CreatorOfOfferName>
+<CreatorOfOfferNumber>0897903663</CreatorOfOfferNumber>
+<CreatorOfOfferEmail>hristo_ultimeted@yahoo.com</CreatorOfOfferEmail>
+<CustomersNames> </CustomersNames>
+<CustomersNumbers> </CustomersNumbers>
+<CustomersEmails> </CustomersEmails>
+</Offers>
 </Offers>

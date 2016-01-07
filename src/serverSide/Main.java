@@ -16,6 +16,7 @@ public class Main {
 		String email=newServer.getScannerInput().nextLine();
 		String accountName=newServer.getScannerInput().nextLine();
 		String password=newServer.getScannerInput().nextLine();
+		String masterKey=newServer.getScannerInput().nextLine();
 		for(int i=0;i<list.size();i++)
 		{
 			if(list.get(i).getName().equals(name) && list.get(i).getEmail().equals(email) && list.get(i).getNumber().equals(number))
@@ -29,6 +30,7 @@ public class Main {
 		person.setAdress(adress);
 		person.setNumber(number);
 		person.setEmail(email);
+		person.setMasterKey(masterKey);
 		person.createAccHash(accountName);
 		person.createPassHash(password);
 		list.add(person);
@@ -75,9 +77,11 @@ public class Main {
 				temp=newServer.getScannerInput().nextLine();
 			}
 		}catch(IOException e){
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
+			throw new RuntimeException(e);
 		}catch(Exception e){
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
+			throw new RuntimeException(e);
 		}
 	}
 }

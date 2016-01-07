@@ -25,7 +25,7 @@ public class CustomerMainOptions {
 		ReadWriteCustomerInfo customer=new ReadWriteCustomerInfo();
 		ListHolder holder=customer.readFile();
 		ArrayList<Person> list=holder.getListPerson();
-		String newAcc,newPassword,enteredInfo;
+		String newAcc,newPassword,enteredInfo,masterKey;
 		for(int i=0;i<list.size();i++)
 		{
 			if(list.get(i).getName().equals(this.getPerson().getName()))
@@ -36,6 +36,8 @@ public class CustomerMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setName(enteredInfo); 
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -44,6 +46,8 @@ public class CustomerMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setNumber(enteredInfo); 
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -52,6 +56,8 @@ public class CustomerMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setEmail(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -60,6 +66,8 @@ public class CustomerMainOptions {
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).setAdress(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					list.get(i).createPassHash(newPassword);
@@ -67,12 +75,16 @@ public class CustomerMainOptions {
 				case "5":
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newPassword=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).createAccHash(enteredInfo); 
 					list.get(i).createPassHash(newPassword);
 					break;
 				case "6": 
 					enteredInfo=this.getServerInfo().getScannerInput().nextLine();
 					newAcc=this.getServerInfo().getScannerInput().nextLine();
+					masterKey=this.getServerInfo().getScannerInput().nextLine();
+					list.get(i).setMasterKey(masterKey);
 					list.get(i).createPassHash(enteredInfo);
 					list.get(i).createAccHash(newAcc);
 					break;
@@ -168,7 +180,7 @@ public void customersOptions(Person person,ServerInfo newServer){
 		try{
 			this.getServerInfo().getNextClientIfAvailable();
 			}catch(IOException e){
-				System.out.println(e.getMessage());
+				throw new RuntimeException(e);
 			}
 	}
 }

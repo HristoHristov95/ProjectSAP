@@ -4,12 +4,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Validator {
-	public int searchForInfo(ArrayList<Person> list,String userName,String password){
+	public int searchForInfo(ArrayList<Person> list,String userName,String password,String masterKey){
 		int thePersonsNumberInTheList=-1;
 		for(int i=0;i<list.size();i++)
 		{
 			boolean accCheck=false;
 			boolean passCheck=false;
+			list.get(i).setMasterKey(masterKey);
 			accCheck=list.get(i).checkAcc(userName);
 			passCheck=list.get(i).checkPassword(password);
 			if(accCheck==true && passCheck==true)
@@ -52,20 +53,21 @@ public class Validator {
 			}
 			String userName= newServer.getScannerInput().nextLine();
 			String password=newServer.getScannerInput().nextLine();
+			String masterKey=newServer.getScannerInput().nextLine();
 			switch(switcher){
-			case 0: personsNumberInTheList=searchForInfo(listWithAdmins,userName,password); 
+			case 0: personsNumberInTheList=searchForInfo(listWithAdmins,userName,password,masterKey); 
 				if(personsNumberInTheList != -1)
 				{
 					person=listWithAdmins.get(personsNumberInTheList);
 					validate=true;
 				}
-			case 1: personsNumberInTheList=searchForInfo(listWithCustomers,userName,password); 
+			case 1: personsNumberInTheList=searchForInfo(listWithCustomers,userName,password,masterKey); 
 			if(personsNumberInTheList != -1)
 			{
 				person=listWithCustomers.get(personsNumberInTheList);
 				validate=true;
 			}
-			case 2: personsNumberInTheList=searchForInfo(listWithEmployees,userName,password);
+			case 2: personsNumberInTheList=searchForInfo(listWithEmployees,userName,password,masterKey);
 			if(personsNumberInTheList != -1)
 			{
 				person=listWithEmployees.get(personsNumberInTheList);

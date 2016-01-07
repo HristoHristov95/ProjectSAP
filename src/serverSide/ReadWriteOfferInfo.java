@@ -49,7 +49,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 			            }
 			         }
 		  }catch(Exception e){
-			  System.out.println(e.getMessage());
+			  throw new RuntimeException(e);
 		  }
 		  ListHolder holder=new ListHolder();
 		  holder.setListOfferInfo(list);
@@ -80,7 +80,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 	            transformer.transform(source, file);
 	 
 	        } catch (Exception e) {
-	            e.printStackTrace();
+	        	throw new RuntimeException(e);
 	            }
 	        }
 	public Node getEmployee(Document doc, String id, String destination, String lenght, String price,String hotels,String vehicles,String daysOfBeginingAndEnd,String allbonusInfo,

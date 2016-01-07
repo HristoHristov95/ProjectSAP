@@ -47,6 +47,9 @@ public class Administrator {
 		System.out.println("(Press 8) Delete an offer ");
 		System.out.println("(Press 9) Show list with all the offers. ");
 		System.out.println("(Press 10) Show list with all the customers.");
+		System.out.println("(Press 11) Import information from file into current XML files .");
+		System.out.println("(Press 12) Export information from files into current XML file .");
+		System.out.println("(Press 13) Shutdown server.");
 		System.out.println("(Press 0) Exit program.");
 		System.out.println("---------------");
 		System.out.println("Please enter option : ");
@@ -74,6 +77,12 @@ public class Administrator {
 				ClientSideInfo.printOut.println("ViewOffers");this.operations.viewOffersOrViewEmployees(); break;
 			case "10": 
 				ClientSideInfo.printOut.println("ViewAllCustomers"); this.operations.viewOffersOrViewEmployees(); break;
+			case "11":
+				ClientSideInfo.printOut.println("ImportData"); this.operations.importInfo(); break;
+			case "12":
+				ClientSideInfo.printOut.println("ExportData"); this.operations.exportInfo(); break;
+			case "13": 
+				ClientSideInfo.printOut.println("ShutDown"); System.exit(11);
 			case"0":ClientSideInfo.printOut.println("0"); System.exit(1);
 				default: System.out.println("Please enter valid option !"); break;
 			}
@@ -87,6 +96,9 @@ public class Administrator {
 			System.out.println("(Press 8) Delete an offer ");
 			System.out.println("(Press 9) Show list with all the offers. ");
 			System.out.println("(Press 10) Show list with all the customers.");
+			System.out.println("(Press 11) Import information from file into current XML files .");
+			System.out.println("(Press 12) Export information from files into current XML file .");
+			System.out.println("(Press 13) Shutdown server.");
 			System.out.println("(Press 0) Exit program.");
 			System.out.println("---------------");
 			System.out.println("Please enter option : ");
