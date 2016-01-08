@@ -1,6 +1,7 @@
 package serverSide;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -17,7 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class ReadWriteOfferInfo implements ReadWrite {
-	public ListHolder readFile()
+	public synchronized ListHolder readFile()
 	{
 		ArrayList<OfferInfo> list=new ArrayList<OfferInfo>();
 		  try{
@@ -48,6 +49,10 @@ public class ReadWriteOfferInfo implements ReadWrite {
 			               list.add(temporary);
 			            }
 			         }
+		  }catch(IOException e){
+			  System.out.println("File not found !");
+			  System.out.println(e.getMessage());
+			  throw new RuntimeException(e);
 		  }catch(Exception e){
 			  throw new RuntimeException(e);
 		  }
@@ -55,7 +60,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 		  holder.setListOfferInfo(list);
 		  return holder;
 	}
-	public void writeFile(ListHolder holder) // prosto zapisva infoto koeto e predostaveno ot ReadEmployees() !!!
+	public synchronized void writeFile(ListHolder holder) // prosto zapisva infoto koeto e predostaveno ot ReadEmployees() !!!
 	{
 		ArrayList<OfferInfo> list=holder.getListOfferInfo();
 		 DocumentBuilderFactory icFactory = DocumentBuilderFactory.newInstance();
@@ -83,7 +88,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 	        	throw new RuntimeException(e);
 	            }
 	        }
-	public Node getEmployee(Document doc, String id, String destination, String lenght, String price,String hotels,String vehicles,String daysOfBeginingAndEnd,String allbonusInfo,
+	public synchronized Node getEmployee(Document doc, String id, String destination, String lenght, String price,String hotels,String vehicles,String daysOfBeginingAndEnd,String allbonusInfo,
 			String creatorName,String creatorNumber,String creatorEmail,String customerName,String customerNumber,String customerEmail) {
 	        Element element = doc.createElement("Offers");
 	        element.setAttribute("id", id);
@@ -102,7 +107,7 @@ public class ReadWriteOfferInfo implements ReadWrite {
 	        element.appendChild(getEmployeeElements(doc, element, "CustomersEmails",customerEmail));
 	        return element;
 	    }
-	 public Node getEmployeeElements(Document doc, Element element, String name, String value) {
+	 public synchronized Node getEmployeeElements(Document doc, Element element, String name, String value) {
 	        Element node = doc.createElement(name);
 	        node.appendChild(doc.createTextNode(value));
 	        return node;

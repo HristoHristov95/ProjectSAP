@@ -1,10 +1,10 @@
 package serverSide;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminMainOptions {
 	private ServerInfo info;
 	private Person theCurrentPerson;
+	public static boolean ServerStatusCheck=true;
 	public void setPerson(Person p){
 		this.theCurrentPerson=p;
 	}
@@ -364,14 +364,9 @@ public class AdminMainOptions {
 			case "ViewAllCustomers": this.viewCustomers(); break;
 			case "ImportData": this.importDataFromXML(); break;
 			case "ExportData": this.exportDataFromXML(); break;
-			case "ShutDown": System.exit(11);
+			case "ShutDown": AdminMainOptions.ServerStatusCheck=false; System.exit(2);
 			}
 			userInput=this.getServerInfo().getScannerInput().nextLine();
-		}
-		try{
-		this.getServerInfo().getNextClientIfAvailable();
-		}catch(IOException e){
-			throw new RuntimeException(e);
 		}
 	}
 }

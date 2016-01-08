@@ -29,11 +29,8 @@ public class ServerInfo{
 	public void createServerLink() throws IOException
 	{
 		this.server=new ServerSocket(1913);
-		this.socket=server.accept();
-		this.input=new Scanner(socket.getInputStream());
-		this.output=new PrintStream(socket.getOutputStream());
 	}
-	public void getNextClientIfAvailable() throws IOException
+	public synchronized void getNextClientIfAvailable() throws IOException
 	{
 		this.socket=this.server.accept();
 		this.input=new Scanner(this.socket.getInputStream());

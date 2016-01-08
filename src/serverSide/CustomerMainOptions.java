@@ -1,6 +1,5 @@
 package serverSide;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class CustomerMainOptions {
@@ -177,10 +176,5 @@ public void customersOptions(Person person,ServerInfo newServer){
 			}
 			userInput=this.getServerInfo().getScannerInput().nextLine();
 		}
-		try{
-			this.getServerInfo().getNextClientIfAvailable();
-			}catch(IOException e){
-				throw new RuntimeException(e);
-			}
 	}
 }

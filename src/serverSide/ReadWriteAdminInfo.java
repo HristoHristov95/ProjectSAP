@@ -17,7 +17,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class ReadWriteAdminInfo implements ReadWrite {
-	public ListHolder readFile()
+	public synchronized ListHolder readFile()
 	{
 		ArrayList<Person> list=new ArrayList<Person>();
 		  try{
@@ -48,7 +48,7 @@ public class ReadWriteAdminInfo implements ReadWrite {
 		holder.setListPerson(list);
 		return holder;
 	}
-	public void writeFile(ListHolder holder) // prosto zapisva infoto koeto e predostaveno ot ReadEmployees() !!!
+	public synchronized void writeFile(ListHolder holder) // prosto zapisva infoto koeto e predostaveno ot ReadEmployees() !!!
 	{
 		ArrayList<Person> list=holder.getListPerson();
 		 DocumentBuilderFactory icFactory = DocumentBuilderFactory.newInstance();
@@ -73,7 +73,7 @@ public class ReadWriteAdminInfo implements ReadWrite {
 	        	throw new RuntimeException(e);
 	            }
 	        }
-	public Node getEmployee(Document doc, String id, String name, String adress, String number,String email,String accountName,String passWord) {
+	public synchronized Node getEmployee(Document doc, String id, String name, String adress, String number,String email,String accountName,String passWord) {
 	        Element element = doc.createElement("Admins");
 	        element.setAttribute("id", id);
 	        element.appendChild(getEmployeeElements(doc, element, "Name", name));
@@ -84,7 +84,7 @@ public class ReadWriteAdminInfo implements ReadWrite {
 	        element.appendChild(getEmployeeElements(doc, element, "Password:", passWord));
 	        return element;
 	    }
-	 public Node getEmployeeElements(Document doc, Element element, String name, String value) {
+	 public synchronized Node getEmployeeElements(Document doc, Element element, String name, String value) {
 	        Element node = doc.createElement(name);
 	        node.appendChild(doc.createTextNode(value));
 	        return node;

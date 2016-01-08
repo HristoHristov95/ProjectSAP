@@ -18,7 +18,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 public class ImportExportAllTheInformation {
-	public boolean importTheInformation(String fileName)
+	public synchronized boolean importTheInformation(String fileName)
 	{
 		fileName=fileName+".xml";
 		ListHolder holderAdmin;
@@ -123,7 +123,7 @@ public class ImportExportAllTheInformation {
 		  }
 		 return true;
 	}
-	public boolean exportTheInformation(String fileName) // Export XML
+	public synchronized boolean exportTheInformation(String fileName) // Export XML
 	{
 		fileName=fileName+".xml";
 		ListHolder holderAdmin;
@@ -180,7 +180,7 @@ public class ImportExportAllTheInformation {
 	            }
 	        return true;
 	        }
-	public Node getEmployee(Document doc, String id, String name, String adress, String number,String email,String accountName,String passWord) {
+	public synchronized Node getEmployee(Document doc, String id, String name, String adress, String number,String email,String accountName,String passWord) {
 		Element element=doc.createElement("AllCurrentInformation");
         element.setAttribute("id", id);
         element.appendChild(getEmployeeElements(doc, element, "Name", name));
@@ -191,13 +191,13 @@ public class ImportExportAllTheInformation {
         element.appendChild(getEmployeeElements(doc, element, "Password:", passWord));
         return element;
     }
- public Node getEmployeeElements(Document doc, Element element, String name, String value) {
+ public synchronized Node getEmployeeElements(Document doc, Element element, String name, String value) {
         Element node = doc.createElement(name);
         node.appendChild(doc.createTextNode(value));
         return node;
     }
  
-	public Node getOffer(Document doc, String id, String destination, String lenght, String price,String hotels,String vehicles,String daysOfBeginingAndEnd,String allbonusInfo,
+	public synchronized Node getOffer(Document doc, String id, String destination, String lenght, String price,String hotels,String vehicles,String daysOfBeginingAndEnd,String allbonusInfo,
 			String creatorName,String creatorNumber,String creatorEmail,String customerName,String customerNumber,String customerEmail) {
 	        Element element = doc.createElement("AllCurrentInformation");
 	        element.setAttribute("id", id);
@@ -216,7 +216,7 @@ public class ImportExportAllTheInformation {
 	        element.appendChild(getOfferElements(doc, element, "CustomersEmails",customerEmail));
 	        return element;
 	    }
-	 public Node getOfferElements(Document doc, Element element, String name, String value) {
+	 public synchronized Node getOfferElements(Document doc, Element element, String name, String value) {
 	        Element node = doc.createElement(name);
 	        node.appendChild(doc.createTextNode(value));
 	        return node;
